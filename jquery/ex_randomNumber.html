@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ex-Random Number for Answer</title>
+</head>
+<body>
+	<h1 align="center">Ex-Random Number for Answer</h1>
+	<hr>
+
+	<div class="col-md-12" align="center">
+		<input type="button" id="random" name="random" value="Randdom Number" >
+		<br><br>
+		<span id="shownum1"></span> + <span id="shownum2"></span> <input type="Number" name="num" id="num"> <br><br>
+		<input type="button" name="send" id="send" value="Send Answer" "><br><br>
+		Result : <span id="answer"></span>
+		<span id="t"></span>
+
+	</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+    $("#random").click(function(){
+        var number1 = Math.floor(Math.random() * (999 - 0 + 1)) + 0;
+	    var number2 = Math.floor(Math.random() * (999 - 0 + 1)) + 0;
+	    $("#shownum1").html(number1);
+	    $("#shownum2").html(number2);
+
+    });
+
+     $("#send").click(function(){
+    	var num1 = $("#shownum1").html();
+    	var num2 = $("#shownum2").html();
+    	var an = $("#num").val();
+    	var n1 = parseInt(num1);
+    	var n2 =parseInt(num2);
+    	var a =parseInt(an);
+	    // answer = 0;
+	    var answer = n1 + n2;
+
+	    console.log(answer);
+
+	    	if (answer == a) {
+	    		$("#answer").css("color", "#00ff00");
+	    		$("#answer").html("That's correct.");
+	    	}
+	    	else{
+	    		$("#answer").css("color", "#ff0000");
+	    		$("#answer").html("That's wrong. The answer is");
+	    	}
+    });
+
+});
+
+</script>
